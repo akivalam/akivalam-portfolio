@@ -1,19 +1,7 @@
-"use client";
-
 import Nav from "./components/Nav";
 import Image from "next/image";
-import { useState, useEffect } from "react";
 
 export default function Home() {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 640);
-    check();
-    window.addEventListener("resize", check);
-    return () => window.removeEventListener("resize", check);
-  }, []);
-
   return (
     <div
       style={{
@@ -23,27 +11,15 @@ export default function Home() {
         flexDirection: "column",
       }}
     >
-      <Nav isMobile={isMobile} />
+      <Nav />
 
-      <main
-        style={{
-          flex: 1,
-          display: "flex",
-          alignItems: "center",
-          maxWidth: "1200px",
-          margin: "0 auto",
-          padding: isMobile ? "32px 24px 48px" : "40px 60px 60px",
-          width: "100%",
-          gap: isMobile ? "40px" : "80px",
-          flexDirection: isMobile ? "column" : "row",
-        }}
-      >
+      <main className="home-main">
         {/* Left — text + buttons */}
-        <div style={{ flex: isMobile ? "unset" : "0 1 480px", width: "100%" }}>
+        <div className="home-text">
           <h1
+            className="home-h1"
             style={{
               fontFamily: "var(--font-dm-serif), serif",
-              fontSize: isMobile ? "52px" : "clamp(56px, 6vw, 84px)",
               fontWeight: 400,
               lineHeight: 1.05,
               letterSpacing: "-0.02em",
@@ -71,6 +47,7 @@ export default function Home() {
           </p>
 
           <p
+            className="home-desc"
             style={{
               fontFamily: "var(--font-dm-sans), sans-serif",
               fontSize: "15px",
@@ -78,7 +55,6 @@ export default function Home() {
               lineHeight: 1.7,
               color: "rgba(255,255,255,0.65)",
               margin: "0 0 36px",
-              maxWidth: isMobile ? "100%" : "400px",
             }}
           >
             I build things that work and fix things that don&apos;t. Technical
@@ -88,31 +64,14 @@ export default function Home() {
           <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
             <PurpleButton href="/timeline">HOW I GOT HERE</PurpleButton>
             <PurpleButton href="/resume">HOW I WORK</PurpleButton>
-            <PurpleButton href="/blog">
-              HOW I THINK
-            </PurpleButton>
+            <PurpleButton href="/blog">HOW I THINK</PurpleButton>
           </div>
         </div>
 
         {/* Right — photo + social */}
-        <div
-          style={{
-            flex: isMobile ? "unset" : "1",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            gap: "24px",
-            width: isMobile ? "100%" : "auto",
-          }}
-        >
+        <div className="home-photo-col">
           {/* Photo frame */}
-          <div
-            style={{
-              position: "relative",
-              width: isMobile ? "260px" : "340px",
-              height: isMobile ? "300px" : "460px",
-            }}
-          >
+          <div className="home-photo-frame">
             <div
               style={{
                 position: "absolute",
@@ -185,27 +144,40 @@ function PurpleButton({
   external?: boolean;
 }) {
   return (
-    <a
-      href={href}
-      target={external ? "_blank" : undefined}
-      rel={external ? "noopener noreferrer" : undefined}
-      style={{
-        display: "block",
-        width: "100%",
-        padding: "16px 24px",
-        backgroundColor: "#7c3aed",
-        color: "#ffffff",
-        textAlign: "center",
-        fontFamily: "var(--font-dm-sans), sans-serif",
-        fontSize: "13px",
-        fontWeight: 500,
-        letterSpacing: "0.12em",
-        textDecoration: "none",
-        borderRadius: "6px",
-      }}
-    >
-      {children}
-    </a>
+    <>
+      <style>{`
+        .purple-btn {
+          display: block;
+          width: 100%;
+          padding: 16px 24px;
+          background-color: #7c3aed;
+          color: #ffffff;
+          text-align: center;
+          font-family: var(--font-dm-sans), sans-serif;
+          font-size: 13px;
+          font-weight: 500;
+          letter-spacing: 0.12em;
+          text-decoration: none;
+          border-radius: 6px;
+          transition: background-color 0.15s ease, transform 0.1s ease;
+        }
+        .purple-btn:hover {
+          background-color: #6d28d9;
+        }
+        .purple-btn:active {
+          background-color: #5b21b6;
+          transform: scale(0.98);
+        }
+      `}</style>
+      <a
+        href={href}
+        target={external ? "_blank" : undefined}
+        rel={external ? "noopener noreferrer" : undefined}
+        className="purple-btn"
+      >
+        {children}
+      </a>
+    </>
   );
 }
 
