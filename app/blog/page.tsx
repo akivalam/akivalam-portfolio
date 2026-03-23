@@ -32,18 +32,31 @@ export default function Blog() {
           width: "100%",
         }}
       >
-        <h1
-          style={{
-            fontFamily: "var(--font-dm-serif), serif",
-            fontSize: "clamp(36px, 5vw, 60px)",
-            fontWeight: 400,
-            letterSpacing: "-0.03em",
-            margin: "0 0 64px",
-            color: "#ffffff",
-          }}
-        >
-          How I think
-        </h1>
+        <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: "20px", marginBottom: "64px" }}>
+          <h1
+            style={{
+              fontFamily: "var(--font-dm-serif), serif",
+              fontSize: "clamp(36px, 5vw, 60px)",
+              fontWeight: 400,
+              letterSpacing: "-0.03em",
+              margin: 0,
+              color: "#ffffff",
+            }}
+          >
+            How I think
+          </h1>
+          <a
+            href="https://akivalam.substack.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="subscribe-btn"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M22 6.037H2v2.138h20V6.037zm0 4.938H2v2.138h20v-2.138zM2 15.912v6.088l10-4.428 10 4.428v-6.088H2z" />
+            </svg>
+            SUBSCRIBE
+          </a>
+        </div>
 
         {posts.length === 0 ? (
           <p

@@ -127,6 +127,9 @@ export default function Home() {
             <SocialLink href="https://www.instagram.com/akivalam" label="Instagram">
               <InstagramIcon />
             </SocialLink>
+            <SocialLink href="https://akivalam.substack.com" label="Substack" external>
+              <SubstackIcon />
+            </SocialLink>
           </div>
         </div>
       </main>
@@ -185,16 +188,18 @@ function SocialLink({
   href,
   label,
   children,
+  external,
 }: {
   href: string;
   label: string;
   children: React.ReactNode;
+  external?: boolean;
 }) {
   return (
     <a
       href={href}
-      target={href.startsWith("http") ? "_blank" : undefined}
-      rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+      target={external || href.startsWith("http") ? "_blank" : undefined}
+      rel={external || href.startsWith("http") ? "noopener noreferrer" : undefined}
       aria-label={label}
       style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}
     >
@@ -228,6 +233,14 @@ function InstagramIcon() {
       <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
       <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
       <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+    </svg>
+  );
+}
+
+function SubstackIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M22 6.037H2v2.138h20V6.037zm0 4.938H2v2.138h20v-2.138zM2 15.912v6.088l10-4.428 10 4.428v-6.088H2z" />
     </svg>
   );
 }
