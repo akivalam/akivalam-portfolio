@@ -228,11 +228,10 @@ export default function Timeline() {
                 {item.role && (
                   <p
                     style={{
-                      fontFamily: "var(--font-dm-serif), serif",
-                      fontSize: "18px",
-                      fontWeight: 400,
-                      letterSpacing: "-0.01em",
-                      color: "#ffffff",
+                      fontFamily: "var(--font-dm-sans), sans-serif",
+                      fontSize: "15px",
+                      fontWeight: 500,
+                      color: "rgba(255,255,255,0.75)",
                       margin: "0 0 12px",
                     }}
                   >
