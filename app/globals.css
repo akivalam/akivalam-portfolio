@@ -210,6 +210,14 @@ body {
   display: none;
 }
 
+/* Hide mobile-only elements on desktop */
+.timeline-period-mobile {
+  display: none !important;
+}
+.timeline-photo-mobile {
+  display: none !important;
+}
+
 @media (max-width: 639px) {
   .timeline-main {
     padding: 24px 20px 80px;
@@ -257,12 +265,4 @@ body {
   .timeline-photo-mobile {
     display: block !important;
   }
-}
-
-/* Hide mobile-only elements on desktop */
-.timeline-period-mobile {
-  display: none !important;
-}
-.timeline-photo-mobile {
-  display: none !important;
 }
