@@ -41,7 +41,7 @@ const timeline = [
     period: "October 2021 - December 2023",
     tag: "GOLDEN HANDCUFFS",
     role: "Principal Engineer",
-    company: null,
+    company: "HBK",
     description:
       "The entire team from the previous startup moved on as a team here, a Danish hardware company, which was fantastic coz it's one of the best teams I've worked with.\n\nThe work-life balance was amazing but, the non-startup way of working just didn't work for me.\n\nStayed on for two years - the $$$ and work-life balance definitely helped but wasn't worth it.",
     photo: "/photos/hbk.jpg",
@@ -68,7 +68,7 @@ const timeline = [
     period: "October 2013 - August 2015",
     tag: "LEAP OF FAITH",
     role: "Field Engineer",
-    company: null,
+    company: "Manufacturing System Insights",
     description:
       "Major leap of faith I took by accepting this offer but man, did it pay off or did it pay off?\n\nWorked with customer support, machine data pattern identification (was done on Excel in those days), wrote backend code and graduated to managing a very complex real-time rules engine in town!\n\nWorked and learned with the best team and the best boss, who is now my mentor, friend and drinking buddy.",
     photo: "/photos/vimana.jpg",
@@ -244,6 +244,11 @@ export default function Timeline() {
                     }}
                   >
                     {item.role}
+                    {item.company && (
+                      <span style={{ color: "rgba(255,255,255,0.4)", fontWeight: 400 }}>
+                        {" "}@ {item.company}
+                      </span>
+                    )}
                   </p>
                 )}
 
