@@ -116,8 +116,11 @@ export default function ShelfSection({ groups }: { groups: YearGroup[] }) {
               minWidth: 'max-content',
             }}>
               {books.map((book) => (
-                <div
+                <a
                   key={book.id}
+                  href={book.goodreadsUrl || 'https://www.goodreads.com/akivalam'}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="spine"
                   onMouseEnter={(e) => {
                     const rect = e.currentTarget.getBoundingClientRect();
@@ -148,7 +151,7 @@ export default function ShelfSection({ groups }: { groups: YearGroup[] }) {
                       <div style={{ width: '46%', height: '2px', background: 'rgba(255,255,255,0.28)', borderRadius: '1px' }} />
                     </>
                   )}
-                </div>
+                </a>
               ))}
             </div>
             {/* Ledge */}
