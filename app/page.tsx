@@ -65,6 +65,7 @@ export default function Home() {
             <PurpleButton href="/timeline">HOW I GOT HERE</PurpleButton>
             <PurpleButton href="/resume">HOW I WORK</PurpleButton>
             <PurpleButton href="/blog">HOW I THINK</PurpleButton>
+            <PurpleButton href="/books">WHAT I READ</PurpleButton>
           </div>
         </div>
 

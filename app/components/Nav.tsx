@@ -53,6 +53,7 @@ export default function Nav() {
           { label: "How I got here", href: "/timeline" },
           { label: "How I work", href: "/resume" },
           { label: "How I think", href: "/blog" },
+          { label: "What I read", href: "/books" },
         ].map(({ label, href }) => (
           <Link
             key={label}
