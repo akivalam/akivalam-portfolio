@@ -80,3 +80,37 @@ export async function getBooks(): Promise<Book[]> {
   const [page1, page2] = await Promise.all([fetchPage(1), fetchPage(2)]);
   return [...page1, ...page2];
 }
+
+export async function getCurrentlyReading(): Promise<Book[]> {
+  const parser = new Parser<Record<string, never>, FeedItem>({
+    customFields: {
+      item: [
+        ['author_name', 'authorName'],
+        ['book_id', 'bookId'],
+        ['user_rating', 'userRating'],
+        ['user_read_at', 'userReadAt'],
+        ['user_review', 'userReview'],
+      ],
+    },
+  });
+
+  const url = `https://www.goodreads.com/review/list_rss/${GOODREADS_USER_ID}?shelf=currently-reading`;
+
+  try {
+    const feed = await parser.parseURL(url);
+    if (!feed.items.length) return [];
+
+    return feed.items.map((item) => ({
+      id: item.bookId || item.title,
+      title: item.title || '',
+      author: item.authorName || '',
+      rating: 0,
+      dateRead: '',
+      coverUrl: extractCoverUrl(item.content || ''),
+      review: '',
+      goodreadsUrl: item.link || '',
+    }));
+  } catch {
+    return [];
+  }
+}

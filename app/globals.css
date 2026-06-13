@@ -266,3 +266,18 @@ body {
     display: block !important;
   }
 }
+
+/* ── Books / Shelf page ──────────────────────────────── */
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 0.9; }
+}
+
+.spine:hover {
+  transform: translateY(-12px) !important;
+  filter: brightness(1.18);
+}
+
+.currently-reading-cover:hover {
+  transform: rotate(0deg) translateY(-4px) !important;
+}
