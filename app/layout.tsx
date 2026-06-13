@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
-import { DM_Serif_Display, DM_Sans } from "next/font/google";
+import { Playfair_Display, Archivo } from "next/font/google";
 import "./globals.css";
 
-const dmSerifDisplay = DM_Serif_Display({
+const dmSerifDisplay = Playfair_Display({
   variable: "--font-dm-serif",
   subsets: ["latin"],
-  weight: ["400"],
+  weight: ["400", "600", "700", "800", "900"],
   style: ["normal", "italic"],
 });
 
-const dmSans = DM_Sans({
+const dmSans = Archivo({
   variable: "--font-dm-sans",
   subsets: ["latin"],
-  weight: ["300", "400", "500"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
