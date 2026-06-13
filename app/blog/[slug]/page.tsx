@@ -148,6 +148,12 @@ export default async function PostPage({
           padding-left: 1.5em;
           margin: 0 0 1.4em;
         }
+        .post-content ul {
+          list-style-type: disc;
+        }
+        .post-content ol {
+          list-style-type: decimal;
+        }
         .post-content li {
           margin-bottom: 0.4em;
         }
