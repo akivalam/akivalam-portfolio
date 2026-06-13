@@ -11,13 +11,21 @@ function abbrevPeriod(period: string) {
 }
 
 const timeline = [
+    {
+    period: "April 2026 - Present",
+    tag: "THE CONSULTING LIFE",
+    role: "Business Solutions Consultant",
+    company: "Propelld",
+    description:
+      "I partner cross-functionally with Sales and Product to identify opportunities, shape strategy, and build solutions that improve both sales outcomes and team efficiency. \n\n I'm also finally getting my hands dirty with Claude!"
+  },
   {
-    period: "December 2025 - Present",
+    period: "December 2025 - March 2026",
     tag: "ON A BREAK",
     role: null,
     company: null,
     description:
-      "I'm on a break - travelling, introspecting, retrospecting and future-specting (yes, it's a word for now!)\n\nI have been having a blast in spending more time with the people I love and doing the things I have always wanted to do.\n\nBut I do realize that it's time for me to start looking at what's next - work and learn with a team I respect for a mission I believe in.",
+      "I was on a break - travelling, introspecting, retrospecting and future-specting (yes, it's a word for now!)\n\nI have been having a blast in spending more time with the people I love and doing the things I have always wanted to do.\n\nBut I do realize that it's time for me to start looking at what's next - work and learn with a team I respect for a mission I believe in.",
     photo: "/photos/break.jpg",
   },
   {
