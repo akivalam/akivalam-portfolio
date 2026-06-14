@@ -2,6 +2,8 @@ import Nav from "../components/Nav";
 import { getBooks, getCurrentlyReading, Book } from "../lib/books";
 import ShelfSection, { YearGroup } from "./ShelfSection";
 
+export const revalidate = 3600;
+
 function groupByYear(books: Book[]): YearGroup[] {
   const map = new Map<number, Book[]>();
   for (const book of books) {
