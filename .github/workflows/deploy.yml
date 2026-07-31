@@ -4,6 +4,14 @@ on:
   push:
     branches: [main]
 
+  # The site is a static export, so Goodreads shelves are baked in at build
+  # time. Rebuild daily to pick up reading changes. 02:00 UTC = 07:30 IST.
+  schedule:
+    - cron: "0 2 * * *"
+
+  # Manual trigger, for when you change a shelf and don't want to wait a day.
+  workflow_dispatch:
+
 permissions:
   contents: read
   pages: write

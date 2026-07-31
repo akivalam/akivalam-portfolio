@@ -2,7 +2,10 @@ import Nav from "../components/Nav";
 import { getBooks, getCurrentlyReading, Book } from "../lib/books";
 import ShelfSection, { YearGroup } from "./ShelfSection";
 
-export const revalidate = 3600;
+// No `revalidate` here: this site is a static export (next.config.ts), so
+// there is no server to revalidate on and the directive would be silently
+// ignored. Goodreads data is read at build time; freshness comes from the
+// daily rebuild in .github/workflows/deploy.yml.
 
 function groupByYear(books: Book[]): YearGroup[] {
   const map = new Map<number, Book[]>();
